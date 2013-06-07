@@ -1,0 +1,32 @@
+{
+    "name": "net_bazzline/php_component_testcase",
+    "type": "library",
+    "description": "php component generalize test case objects for knowledge tests",
+    "keywords": ["php", "net_bazzline", "component", "testcase"],
+    "homepage": "https://github.com/stevleibelt/php_net_bazzline_component_testcase",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "stev leibelt",
+            "email": "artodeto@arcor.de",
+            "homepage": "http://artodeto.bazzline.net",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "net_bazzline/php_component_converter": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "mikey179/vfsStream": "dev-master",
+	    "mockery/mockery": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Net\\Bazzline\\Component\\TestCase": "source/",
+            "Test\\Net\\Bazzline\\Component\\TestCase": "test/"
+        }
+    }
+}
