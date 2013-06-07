@@ -55,8 +55,8 @@ class QuestionFactory extends FactoryAbstract
         }
 
         $question = new Question();
-
         $question->setProblemDefinition($sourceAsArray['problemDefinition']);
+
         if (isset($sourceAsArray['hint'])) {
             $question->setHint($sourceAsArray['hint']);
         }

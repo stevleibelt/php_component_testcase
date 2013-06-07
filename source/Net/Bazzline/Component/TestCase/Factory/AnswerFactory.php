@@ -76,9 +76,11 @@ class AnswerFactory extends FactoryAbstract
         }
 
         $answer = new $answerClass();
+
         foreach ($sourceAsArray['opportunities'] as $opportunity) {
             $answer->addOpportunity($opportunity);
         }
+
         foreach ($sourceAsArray['validOpportunities'] as $validOpportunity) {
             $answer->addValidOpportunity($validOpportunity);
         }

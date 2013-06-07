@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<suite>
+    <name>
+        My Suite
+    </name>
+    <description>
+        This is my suite
+    </description>
+    <language>
+        de
+    </language>
+    <pathToTestCase>
+        ../testCase/MyTestCase.xml
+    </pathToTestCase>
+    <name>
+        My Suite
+    </name>
+    <description>
+        This is my suite
+    </description>
+    <language>
+        de
+    </language>
+    <pathToTestCase>
+        ../testCase/MyTestCase.xml
+    </pathToTestCase>
+</suite>

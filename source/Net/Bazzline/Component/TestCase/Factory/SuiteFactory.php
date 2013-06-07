@@ -61,6 +61,7 @@ class SuiteFactory extends FactoryAbstract
         $suite->setName($array['name']);
         $suite->setLanguage($array['language']);
         $suite->setDescription($array['description']);
+
         foreach ($array['pathToTestCases'] as $testCaseFilename) {
             if (file_exists($testCaseFilename)
                 && is_readable($testCaseFilename)) {

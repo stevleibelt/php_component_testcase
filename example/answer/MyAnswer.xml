@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<answer>
+    <type>
+        MultipleAnswer
+    </type>
+    <opportunities>
+        First opportunity
+    </opportunities>
+    <opportunities>
+        Second opportunity
+    </opportunities>
+    <opportunities>
+        Thirds opportunity
+    </opportunities>
+    <opportunities>
+        The right opportunity
+    </opportunities>
+    <validOpportunities>
+        The right opportunity
+    </validOpportunities>
+</answer>
