@@ -17,6 +17,7 @@ class SingleAnswer extends AnswerAbstract
 {
     /**
      * @{inheritDoc}
+     * @todo move logic into getPercentageOfAccuracy
      */
     public function validateSelectedOpportunities()
     {

@@ -18,18 +18,6 @@ class MultipleAnswer extends AnswerAbstract
     /**
      * @{inheritDoc}
      */
-    public function validateSelectedOpportunities()
-    {
-        $arrayDiff = array_diff_assoc($this->validOpportunities, $this->selectedOpportunities);
-
-        $isValid = empty($arrayDiff);
-
-        return $isValid;
-    }
-
-    /**
-     * @{inheritDoc}
-     */
     public function getPercentageOfAccuracy()
     {
         $numberOfValidOpportunities = count($this->validOpportunities);

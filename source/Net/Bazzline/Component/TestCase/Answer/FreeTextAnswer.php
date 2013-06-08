@@ -18,16 +18,6 @@ class FreeTextAnswer extends AnswerAbstract
     /**
      * @{inheritDoc}
      */
-    public function validateSelectedOpportunities()
-    {
-        $isValid = ($this->getPercentageOfAccuracy() == 100);
-
-        return $isValid;
-    }
-
-    /**
-     * @{inheritDoc}
-     */
     public function getPercentageOfAccuracy()
     {
 /*
