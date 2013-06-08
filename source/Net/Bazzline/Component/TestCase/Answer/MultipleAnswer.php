@@ -36,6 +36,6 @@ class MultipleAnswer extends AnswerAbstract
             $percentage = 0;
         }
 
-        return $percentage;
+        return (integer) $percentage;
     }
 }
