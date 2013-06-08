@@ -44,6 +44,18 @@ class MockFactory
     }
 
     /**
+     * @return Mockery\MockInterface|\Net\Bazzline\Component\TestCase\TestCase\TestCase
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-08
+     */
+    public static function getTestCase()
+    {
+        $testCase = Mockery::mock('Net\Bazzline\Component\TestCase\TestCase\TestCase');
+
+        return $testCase;
+    }
+
+    /**
      * Tears down mock factory
      *
      * @author stev leibelt <artodeto@arcor.de>
