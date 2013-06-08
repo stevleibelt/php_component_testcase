@@ -23,7 +23,7 @@ class FreeTextAnswer extends AnswerAbstract
         $numberOfValidOpportunities = count($this->validOpportunities);
         $numberOfCountedValidOpportunities = 0;
 
-        $freeText = strtolower(end($this->selectedOpportunities));
+        $freeText = strtolower(end($this->enteredOpportunities));
 
         foreach ($this->validOpportunities as $needle) {
             if (stripos($freeText, $needle) !== false) {

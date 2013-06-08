@@ -53,13 +53,13 @@ class MultipleAnswerTest extends UnitTestCase
         $testCases = array(
             'NTC - No opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(),
+                'enteredOpportunities' => array(),
                 'validOpportunities' => array(),
                 'percentageOfAccuracy' => 0
             ),
             'NTC - Two invalid opportunities selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity one',
                     'opportunity four'
                 ),
@@ -68,7 +68,7 @@ class MultipleAnswerTest extends UnitTestCase
             ),
             'NTC - One invalid opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity one'
                 ),
                 'validOpportunities' => array(),
@@ -76,7 +76,7 @@ class MultipleAnswerTest extends UnitTestCase
             ),
             'NTC - One valid opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity two'
                 ),
                 'validOpportunities' => array(),
@@ -84,7 +84,7 @@ class MultipleAnswerTest extends UnitTestCase
             ),
             'NTC - One valid and one invalid opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity one',
                     'opportunity two'
                 ),
@@ -93,7 +93,7 @@ class MultipleAnswerTest extends UnitTestCase
             ),
             'PTC - Two valid opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity two',
                     'opportunity three'
                 ),
@@ -104,7 +104,7 @@ class MultipleAnswerTest extends UnitTestCase
 
         foreach ($testCases as &$testCase) {
             $testCase['opportunities'] = array_merge($testCase['opportunities'], $defaultOpportunities);
-            $testCase['selectedOpportunities'] = array_merge($testCase['selectedOpportunities'], $defaultSelectedOpportunities);
+            $testCase['enteredOpportunities'] = array_merge($testCase['enteredOpportunities'], $defaultSelectedOpportunities);
             $testCase['validOpportunities'] = array_merge($testCase['validOpportunities'], $defaultValidOpportunities);
         }
 
@@ -129,7 +129,7 @@ class MultipleAnswerTest extends UnitTestCase
         }
 
         foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addSelectedOpportunity($selectedOpportunity);
+            $answer->addEnteredOpportunity($selectedOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {
@@ -138,7 +138,7 @@ class MultipleAnswerTest extends UnitTestCase
 
         $isValid = ($percentageOfAccuracy == 100);
 
-        $this->assertEquals($isValid, $answer->validateSelectedOpportunities());
+        $this->assertEquals($isValid, $answer->validateEnteredOpportunities());
     }
 
     /**
@@ -159,7 +159,7 @@ class MultipleAnswerTest extends UnitTestCase
         }
 
         foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addSelectedOpportunity($selectedOpportunity);
+            $answer->addEnteredOpportunity($selectedOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {

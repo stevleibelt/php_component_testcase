@@ -51,13 +51,13 @@ class SingleAnswerTest extends UnitTestCase
         $testCases = array(
             'NTC - No opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(),
+                'enteredOpportunities' => array(),
                 'validOpportunities' => array(),
                 'isValid' => false
             ),
             'NTC - Two opportunities selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity one',
                     'opportunity two'
                 ),
@@ -66,7 +66,7 @@ class SingleAnswerTest extends UnitTestCase
             ),
             'NTC - One invalid opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity one'
                 ),
                 'validOpportunities' => array(),
@@ -74,7 +74,7 @@ class SingleAnswerTest extends UnitTestCase
             ),
             'PTC - One valid opportunity selected' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity two'
                 ),
                 'validOpportunities' => array(),
@@ -84,7 +84,7 @@ class SingleAnswerTest extends UnitTestCase
 
         foreach ($testCases as &$testCase) {
             $testCase['opportunities'] = array_merge($testCase['opportunities'], $defaultOpportunities);
-            $testCase['selectedOpportunities'] = array_merge($testCase['selectedOpportunities'], $defaultSelectedOpportunities);
+            $testCase['enteredOpportunities'] = array_merge($testCase['enteredOpportunities'], $defaultSelectedOpportunities);
             $testCase['validOpportunities'] = array_merge($testCase['validOpportunities'], $defaultValidOpportunities);
         }
 
@@ -109,14 +109,14 @@ class SingleAnswerTest extends UnitTestCase
         }
 
         foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addSelectedOpportunity($selectedOpportunity);
+            $answer->addEnteredOpportunity($selectedOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {
             $answer->addValidOpportunity($validOpportunity);
         }
 
-        $this->assertEquals($isValid, $answer->validateSelectedOpportunities());
+        $this->assertEquals($isValid, $answer->validateEnteredOpportunities());
     }
 
     /**
@@ -137,7 +137,7 @@ class SingleAnswerTest extends UnitTestCase
         }
 
         foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addSelectedOpportunity($selectedOpportunity);
+            $answer->addEnteredOpportunity($selectedOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {

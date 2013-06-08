@@ -49,14 +49,14 @@ class FreeTextAnswerTest extends UnitTestCase
         $testCases = array(
             'NTC - No opportunity entered' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(),
+                'enteredOpportunities' => array(),
                 'validOpportunities' => array(),
                 'isValid' => false,
                 'percentageOfAccuracy' => 0
             ),
             'NTC - Two invalid opportunities entered' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'an other opportunity is javascript'
                 ),
                 'validOpportunities' => array(),
@@ -65,7 +65,7 @@ class FreeTextAnswerTest extends UnitTestCase
             ),
             'NTC - One invalid opportunity entered' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity'
                 ),
                 'validOpportunities' => array(),
@@ -74,7 +74,7 @@ class FreeTextAnswerTest extends UnitTestCase
             ),
             'NTC - One valid and one invalid opportunity entered' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'opportunity two'
                 ),
                 'validOpportunities' => array(),
@@ -83,7 +83,7 @@ class FreeTextAnswerTest extends UnitTestCase
             ),
             'NTC - One partial valid opportunity entered' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'this is a text with a two inside'
                 ),
                 'validOpportunities' => array(),
@@ -92,7 +92,7 @@ class FreeTextAnswerTest extends UnitTestCase
             ),
             'NTC - One partial valid opportunity entered' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'this is a text with a two inside'
                 ),
                 'validOpportunities' => array(),
@@ -101,7 +101,7 @@ class FreeTextAnswerTest extends UnitTestCase
             ),
             'PTC - One full valid opportunity entered' => array(
                 'opportunities' => array(),
-                'selectedOpportunities' => array(
+                'enteredOpportunities' => array(
                     'php has more then two ways of unittests'
                 ),
                 'validOpportunities' => array(),
@@ -112,7 +112,7 @@ class FreeTextAnswerTest extends UnitTestCase
 
         foreach ($testCases as &$testCase) {
             $testCase['opportunities'] = array_merge($testCase['opportunities'], $defaultOpportunities);
-            $testCase['selectedOpportunities'] = array_merge($testCase['selectedOpportunities'], $defaultSelectedOpportunities);
+            $testCase['enteredOpportunities'] = array_merge($testCase['enteredOpportunities'], $defaultSelectedOpportunities);
             $testCase['validOpportunities'] = array_merge($testCase['validOpportunities'], $defaultValidOpportunities);
         }
 
@@ -138,14 +138,14 @@ class FreeTextAnswerTest extends UnitTestCase
         }
 
         foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addSelectedOpportunity($selectedOpportunity);
+            $answer->addEnteredOpportunity($selectedOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {
             $answer->addValidOpportunity($validOpportunity);
         }
 
-        $this->assertEquals($isValid, $answer->validateSelectedOpportunities());
+        $this->assertEquals($isValid, $answer->validateEnteredOpportunities());
     }
 
     /**
@@ -167,7 +167,7 @@ class FreeTextAnswerTest extends UnitTestCase
         }
 
         foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addSelectedOpportunity($selectedOpportunity);
+            $answer->addEnteredOpportunity($selectedOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {

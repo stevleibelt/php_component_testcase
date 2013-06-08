@@ -27,7 +27,7 @@ class AnswerAbstractTest extends UnitTestCase
         $answer = $this->getNewAnswerAbstractMock();
 
         $this->assertEquals(array(), $answer->getOpportunities());
-        $this->assertEquals(array(), $answer->getSelectedOpportunities());
+        $this->assertEquals(array(), $answer->getEnteredOpportunities());
         $this->assertEquals(array(), $answer->getValidOpportunities());
     }
 
@@ -65,10 +65,10 @@ class AnswerAbstractTest extends UnitTestCase
         );
 
         foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addSelectedOpportunity($selectedOpportunity);
+            $answer->addEnteredOpportunity($selectedOpportunity);
         }
 
-        $this->assertEquals($selectedOpportunities, array_values($answer->getSelectedOpportunities()));
+        $this->assertEquals($selectedOpportunities, array_values($answer->getEnteredOpportunities()));
     }
 
     /**
@@ -98,6 +98,6 @@ class AnswerAbstractTest extends UnitTestCase
      */
     private function getNewAnswerAbstractMock()
     {
-        return Mockery::mock('Net\Bazzline\Component\TestCase\Answer\AnswerAbstract[validateSelectedOpportunities,getPercentageOfAccuracy]');
+        return Mockery::mock('Net\Bazzline\Component\TestCase\Answer\AnswerAbstract[getPercentageOfAccuracy]');
     }
 }

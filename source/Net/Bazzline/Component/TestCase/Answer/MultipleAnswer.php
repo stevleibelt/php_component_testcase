@@ -23,7 +23,7 @@ class MultipleAnswer extends AnswerAbstract
         $numberOfValidOpportunities = count($this->validOpportunities);
         $numberOfValidSelectedOpportunities = 0;
 
-        foreach ($this->selectedOpportunities as $selectedOpportunity) {
+        foreach ($this->enteredOpportunities as $selectedOpportunity) {
             if (isset($this->validOpportunities[md5($selectedOpportunity)])) {
                 $numberOfValidSelectedOpportunities++;
             }

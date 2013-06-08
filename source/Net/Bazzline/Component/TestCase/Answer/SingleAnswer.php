@@ -20,8 +20,8 @@ class SingleAnswer extends AnswerAbstract
      */
     public function getPercentageOfAccuracy()
     {
-        $percentage = ((count($this->selectedOpportunities) == 1)
-            && (in_array(end($this->selectedOpportunities), $this->validOpportunities))) ?
+        $percentage = ((count($this->enteredOpportunities) == 1)
+            && (in_array(end($this->enteredOpportunities), $this->validOpportunities))) ?
             100 : 0;
 
         return $percentage;

@@ -26,15 +26,14 @@ interface AnswerInterface
 
     /**
      *
-     * @param string $selectedOpportunity - user selected opportunity
+     * @param string $enteredOpportunity - user selected opportunity
      *
      * @return AnswerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
      * @todo throw exception if the added validOpportunity is not in opportunities
-     * @todo rename to "addEnteredOpportunity"
      */
-    public function addSelectedOpportunity($selectedOpportunity);
+    public function addEnteredOpportunity($enteredOpportunity);
 
     /**
      * Returns an array of selected opportunities.
@@ -42,9 +41,8 @@ interface AnswerInterface
      * @return array
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
-     * @todo rename to "getEnteredOpportunity"
      */
-    public function getSelectedOpportunities();
+    public function getEnteredOpportunities();
 
     /**
      * Validates given opportunity.
@@ -52,9 +50,8 @@ interface AnswerInterface
      * @return boolean
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
-     * @todo rename to "validateEnteredOpportunity"
      */
-    public function validateSelectedOpportunities();
+    public function validateEnteredOpportunities();
 
     /**
      * Returns the percentage (0 up to 100) of accuracy.

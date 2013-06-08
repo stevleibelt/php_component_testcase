@@ -20,14 +20,14 @@ abstract class AnswerAbstract implements AnswerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-26
      */
-    protected $opportunities;
+    protected $enteredOpportunities;
 
     /**
      * @var array
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-26
      */
-    protected $selectedOpportunities;
+    protected $opportunities;
 
     /**
      * @var array
@@ -42,8 +42,8 @@ abstract class AnswerAbstract implements AnswerInterface
      */
     public function __construct()
     {
+        $this->enteredOpportunities = array();
         $this->opportunities = array();
-        $this->selectedOpportunities = array();
         $this->validOpportunities = array();
     }
 
@@ -58,9 +58,9 @@ abstract class AnswerAbstract implements AnswerInterface
     /**
      * @{inheritDoc}
      */
-    public function addSelectedOpportunity($selectedOpportunity)
+    public function addEnteredOpportunity($enteredOpportunity)
     {
-        $this->selectedOpportunities[md5($selectedOpportunity)] = $selectedOpportunity;
+        $this->enteredOpportunities[md5($enteredOpportunity)] = $enteredOpportunity;
 
         return $this;
     }
@@ -68,9 +68,9 @@ abstract class AnswerAbstract implements AnswerInterface
     /**
      * @{inheritDoc}
      */
-    public function getSelectedOpportunities()
+    public function getEnteredOpportunities()
     {
-        return $this->selectedOpportunities;
+        return $this->enteredOpportunities;
     }
 
     /**
@@ -115,7 +115,7 @@ abstract class AnswerAbstract implements AnswerInterface
     /**
      * @{inheritDoc}
      */
-    public function validateSelectedOpportunities()
+    public function validateEnteredOpportunities()
     {
         $isValid = ($this->getPercentageOfAccuracy() == 100);
 
