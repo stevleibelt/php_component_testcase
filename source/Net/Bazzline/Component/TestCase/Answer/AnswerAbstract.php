@@ -111,4 +111,14 @@ abstract class AnswerAbstract implements AnswerInterface
 
         return $this;
     }
+
+    /**
+     * @{inheritDoc}
+     */
+    public function validateSelectedOpportunities()
+    {
+        $isValid = ($this->getPercentageOfAccuracy() == 100);
+
+        return $isValid;
+    }
 }
