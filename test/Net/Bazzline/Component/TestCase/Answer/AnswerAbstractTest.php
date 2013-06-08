@@ -55,13 +55,36 @@ class AnswerAbstractTest extends UnitTestCase
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testGetAndAddSelectedOpportunities()
+    public function testGetAndAddEnteredOpportunities()
     {
         $answer = $this->getNewAnswerAbstractMock();
 
         $enteredOpportunities = array(
             'selected opportunity one',
             'selected opportunity two'
+        );
+
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
+        }
+
+        $this->assertEquals($enteredOpportunities, array_values($answer->getEnteredOpportunities()));
+    }
+
+    /**
+     * @expectedException \Net\Bazzline\Component\TestCase\Answer\InvalidArgumentException
+     * @expectedExceptionMessage Opportunity already entered.
+     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-08
+     */
+    public function testGetAndAddEnteredOpportunitiesWitAddingTheSameEnteredOpportunitieMultipleTimes()
+    {
+        $answer = $this->getNewAnswerAbstractMock();
+
+        $enteredOpportunities = array(
+            'selected opportunity one',
+            'selected opportunity one'
         );
 
         foreach ($enteredOpportunities as $enteredOpportunity) {
