@@ -21,7 +21,7 @@ class SingleAnswer extends AnswerAbstract
     public function validateSelectedOpportunities()
     {
         $isValid = ((count($this->selectedOpportunities) == 1)
-            && (in_array($this->opportunities, end($this->selectedOpportunities))));
+            && (in_array(end($this->selectedOpportunities), $this->validOpportunities)));
 
         return $isValid;
     }

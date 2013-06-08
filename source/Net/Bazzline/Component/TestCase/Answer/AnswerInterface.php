@@ -31,6 +31,7 @@ interface AnswerInterface
      * @return AnswerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
+     * @todo throw exception if the added validOpportunity is not in opportunities
      */
     public function addSelectedOpportunity($selectedOpportunity);
 
@@ -98,6 +99,7 @@ interface AnswerInterface
      * @return mixed
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
+     * @todo throw exception if the added validOpportunity is not in opportunities
      */
     public function addValidOpportunity($validOpportunity);
 }
