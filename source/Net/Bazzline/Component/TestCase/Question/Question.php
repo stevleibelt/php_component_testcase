@@ -48,7 +48,7 @@ class Question implements QuestionInterface
     /**
      * @{inheritdoc}
      */
-    public function isHintAvailable()
+    public function hasHint()
     {
         return (!is_null($this->hint));
     }

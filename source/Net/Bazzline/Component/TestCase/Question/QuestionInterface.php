@@ -40,7 +40,7 @@ interface QuestionInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-26
      */
-    public function isHintAvailable();
+    public function hasHint();
 
     /**
      * Sets the hint to find the right answer.
