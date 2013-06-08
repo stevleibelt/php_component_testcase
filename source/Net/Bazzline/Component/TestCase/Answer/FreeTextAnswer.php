@@ -20,53 +20,20 @@ class FreeTextAnswer extends AnswerAbstract
      */
     public function getPercentageOfAccuracy()
     {
-/*
-# frage
-        "Beschreiben sie den weg eines webseiten aufrufes"
-
-# antwort
-"die url wird von einem dns server zu einer ip addresse uebersetzt. der server der ip addresse nimmt den request entgegen und liefert einen entsprechenden response zurueck."
-
-# keywords
-url
-ip addresse
-server
-dns
-request
-response
-*/
-//----
-        $freeText = strtolower(end($this->selectedOpportunities));
         $numberOfValidOpportunities = count($this->validOpportunities);
-        $numberOfValidOpportunitiesInFreeText = 0;
-        $numberOfSelectedOpportunities = count($this->selectedOpportunities);
+        $numberOfCountedValidOpportunities = 0;
 
-        foreach ($this->validOpportunities as $needles) {
-            $arrayOfNeedles = explode(' ', $needles);
-            foreach ($arrayOfNeedles as $needle) {
-                if (stripos($freeText, $needle) !== false) {
-                    $numberOfValidOpportunitiesInFreeText++;
-                }
+        $freeText = strtolower(end($this->selectedOpportunities));
+
+        foreach ($this->validOpportunities as $needle) {
+            if (stripos($freeText, $needle) !== false) {
+                $numberOfCountedValidOpportunities++;
             }
         }
 
-        if ($numberOfValidOpportunitiesInFreeText > 0) {
-            $accuracy = $numberOfValidOpportunitiesInFreeText / $numberOfValidOpportunities;
-            $percentage = $accuracy * 100;
-echo var_export(
-    array(
-        'this' => $this,
-        'nr_free' => $numberOfValidOpportunitiesInFreeText,
-        'nr_valid' => $numberOfValidOpportunities,
-        'accuracy' => $accuracy,
-        'percentage' => $percentage
-    ), true) . PHP_EOL;
-            if ($numberOfSelectedOpportunities > 1) {
-                $percentage /= $numberOfSelectedOpportunities;
-            }
-        } else {
-            $percentage = 0;
-        }
+        $accuracy = $numberOfCountedValidOpportunities / $numberOfValidOpportunities;
+        $percentage = $accuracy * 100;
 
-        return $percentage;
-    }}
+        return (integer) $percentage;
+    }
+}

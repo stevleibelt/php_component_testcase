@@ -36,15 +36,12 @@ class FreeTextAnswerTest extends UnitTestCase
      */
     public static function providerForValidateSelectedOpportunitiesTest()
     {
-        $defaultOpportunities = array(
-            'opportunity one',
-            'opportunity two',
-            'opportunity three',
-            'opportunity four'
-        );
+        $defaultOpportunities = array();
         $defaultSelectedOpportunities = array();
         $defaultValidOpportunities = array(
-            'opportunity two'
+            'two',
+            'unittest',
+            'php'
         );
 
         //NTC = negative test case
@@ -60,8 +57,7 @@ class FreeTextAnswerTest extends UnitTestCase
             'NTC - Two invalid opportunities entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
-                    'opportunity one',
-                    'opportunity four'
+                    'an other opportunity is javascript'
                 ),
                 'validOpportunities' => array(),
                 'isValid' => false,
@@ -70,7 +66,7 @@ class FreeTextAnswerTest extends UnitTestCase
             'NTC - One invalid opportunity entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
-                    'opportunity one'
+                    'opportunity'
                 ),
                 'validOpportunities' => array(),
                 'isValid' => false,
@@ -79,30 +75,38 @@ class FreeTextAnswerTest extends UnitTestCase
             'NTC - One valid and one invalid opportunity entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
-                    'opportunity one',
                     'opportunity two'
                 ),
                 'validOpportunities' => array(),
                 'isValid' => false,
-                'percentageOfAccuracy' => 50
+                'percentageOfAccuracy' => 33
             ),
-            'PTC - One full valid opportunity entered' => array(
-                'opportunities' => array(),
-                'selectedOpportunities' => array(
-                    'opportunity two'
-                ),
-                'validOpportunities' => array(),
-                'isValid' => true,
-                'percentageOfAccuracy' => 100
-            ),
-            'PTC - One partial valid opportunity entered' => array(
+            'NTC - One partial valid opportunity entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
                     'this is a text with a two inside'
                 ),
                 'validOpportunities' => array(),
+                'isValid' => false,
+                'percentageOfAccuracy' => 66
+            ),
+            'NTC - One partial valid opportunity entered' => array(
+                'opportunities' => array(),
+                'selectedOpportunities' => array(
+                    'this is a text with a two inside'
+                ),
+                'validOpportunities' => array(),
+                'isValid' => false,
+                'percentageOfAccuracy' => 33
+            ),
+            'PTC - One full valid opportunity entered' => array(
+                'opportunities' => array(),
+                'selectedOpportunities' => array(
+                    'php has more then two ways of unittests'
+                ),
+                'validOpportunities' => array(),
                 'isValid' => true,
-                'percentageOfAccuracy' => 50
+                'percentageOfAccuracy' => 100
             )
         );
 
