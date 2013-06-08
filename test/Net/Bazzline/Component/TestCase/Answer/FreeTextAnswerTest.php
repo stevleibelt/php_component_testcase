@@ -44,21 +44,20 @@ class FreeTextAnswerTest extends UnitTestCase
         );
         $defaultSelectedOpportunities = array();
         $defaultValidOpportunities = array(
-            'opportunity two',
-            'opportunity three'
+            'opportunity two'
         );
 
         //NTC = negative test case
         //PTC = positive test case
         $testCases = array(
-            'NTC - No opportunity selected' => array(
+            'NTC - No opportunity entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(),
                 'validOpportunities' => array(),
                 'isValid' => false,
                 'percentageOfAccuracy' => 0
             ),
-            'NTC - Two invalid opportunities selected' => array(
+            'NTC - Two invalid opportunities entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
                     'opportunity one',
@@ -68,7 +67,7 @@ class FreeTextAnswerTest extends UnitTestCase
                 'isValid' => false,
                 'percentageOfAccuracy' => 0
             ),
-            'NTC - One invalid opportunity selected' => array(
+            'NTC - One invalid opportunity entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
                     'opportunity one'
@@ -77,16 +76,7 @@ class FreeTextAnswerTest extends UnitTestCase
                 'isValid' => false,
                 'percentageOfAccuracy' => 0
             ),
-            'NTC - One valid opportunity selected' => array(
-                'opportunities' => array(),
-                'selectedOpportunities' => array(
-                    'opportunity two'
-                ),
-                'validOpportunities' => array(),
-                'isValid' => false,
-                'percentageOfAccuracy' => 0
-            ),
-            'NTC - One valid and one invalid opportunity selected' => array(
+            'NTC - One valid and one invalid opportunity entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
                     'opportunity one',
@@ -94,17 +84,25 @@ class FreeTextAnswerTest extends UnitTestCase
                 ),
                 'validOpportunities' => array(),
                 'isValid' => false,
-                'percentageOfAccuracy' => 0
+                'percentageOfAccuracy' => 50
             ),
-            'PTC - Two valid opportunity selected' => array(
+            'PTC - One full valid opportunity entered' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
-                    'opportunity two',
-                    'opportunity three'
+                    'opportunity two'
                 ),
                 'validOpportunities' => array(),
                 'isValid' => true,
                 'percentageOfAccuracy' => 100
+            ),
+            'PTC - One partial valid opportunity entered' => array(
+                'opportunities' => array(),
+                'selectedOpportunities' => array(
+                    'this is a text with a two inside'
+                ),
+                'validOpportunities' => array(),
+                'isValid' => true,
+                'percentageOfAccuracy' => 50
             )
         );
 
