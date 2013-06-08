@@ -53,8 +53,12 @@ class FreeTextAnswer extends AnswerAbstract
             }
         }
 
-        $accuracy = $numberOfValidOpportunities / $numberOfValidOpportunitiesInFreeText;
-        $percentage = number_format($accuracy, 2);
+        if ($numberOfValidOpportunitiesInFreeText > 0) {
+            $accuracy = $numberOfValidOpportunitiesInFreeText / $numberOfValidOpportunities;
+            $percentage = $accuracy * 100;
+        } else {
+            $percentage = 0;
+        }
 
         return $percentage;
     }}

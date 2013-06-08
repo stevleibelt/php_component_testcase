@@ -42,7 +42,6 @@ class MultipleAnswer extends AnswerAbstract
         }
 
         if ($numberOfValidSelectedOpportunities > 0) {
-            //$accuracy = $numberOfValidOpportunities / $numberOfValidSelectedOpportunities;
             $accuracy = $numberOfValidSelectedOpportunities / $numberOfValidOpportunities;
             $percentage = $accuracy * 100;
         } else {
