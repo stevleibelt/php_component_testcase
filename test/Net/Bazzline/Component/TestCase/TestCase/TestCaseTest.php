@@ -6,8 +6,8 @@
 
 namespace Test\Net\Bazzline\Component\TestCase\TestCase;
 
-use Test\Net\Bazzline\Component\TestCase\UnitTestCase;
 use Net\Bazzline\Component\TestCase\TestCase\TestCase;
+use Test\Net\Bazzline\Component\TestCase\UnitTestCase;
 use Test\Net\Bazzline\Component\TestCase\MockFactory;
 
 class TestCaseTest extends UnitTestCase
