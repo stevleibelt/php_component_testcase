@@ -68,6 +68,14 @@ abstract class AnswerAbstract implements AnswerInterface
     /**
      * @{inheritDoc}
      */
+    public function getSelectedOpportunities()
+    {
+        return $this->selectedOpportunities;
+    }
+
+    /**
+     * @{inheritDoc}
+     */
     public function getValidOpportunities()
     {
         return $this->validOpportunities;

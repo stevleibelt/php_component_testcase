@@ -35,6 +35,15 @@ interface AnswerInterface
     public function addSelectedOpportunity($selectedOpportunity);
 
     /**
+     * Returns an array of selected opportunities.
+     *
+     * @return array
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-08
+     */
+    public function getSelectedOpportunities();
+
+    /**
      * Validates given opportunity.
      *
      * @return boolean
