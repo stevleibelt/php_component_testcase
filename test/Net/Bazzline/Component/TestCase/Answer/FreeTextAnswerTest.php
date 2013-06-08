@@ -36,7 +36,11 @@ class FreeTextAnswerTest extends UnitTestCase
      */
     public static function providerForValidateSelectedOpportunitiesTest()
     {
-        $defaultOpportunities = array();
+        $defaultOpportunities = array(
+            'two',
+            'unittest',
+            'php'
+        );
         $defaultSelectedOpportunities = array();
         $defaultValidOpportunities = array(
             'two',

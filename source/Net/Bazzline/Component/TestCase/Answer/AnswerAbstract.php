@@ -60,6 +60,11 @@ abstract class AnswerAbstract implements AnswerInterface
      */
     public function addEnteredOpportunity($enteredOpportunity)
     {
+        if (isset($this->enteredOpportunities[md5($enteredOpportunity)])) {
+            throw new InvalidArgumentException(
+                'Opportunity already entered.'
+            );
+        }
         $this->enteredOpportunities[md5($enteredOpportunity)] = $enteredOpportunity;
 
         return $this;
@@ -107,6 +112,16 @@ abstract class AnswerAbstract implements AnswerInterface
      */
     public function addValidOpportunity($validOpportunity)
     {
+        if (isset($this->validOpportunities[md5($validOpportunity)])) {
+            throw new InvalidArgumentException(
+                'Valid opportunity already entered.'
+            );
+        }
+        if (!isset($this->opportunities[md5($validOpportunity)])) {
+            throw new InvalidArgumentException(
+                'Valid opportunity not available in opportunities.'
+            );
+        }
         $this->validOpportunities[md5($validOpportunity)] = $validOpportunity;
 
         return $this;

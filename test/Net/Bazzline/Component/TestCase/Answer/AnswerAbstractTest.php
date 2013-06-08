@@ -72,6 +72,29 @@ class AnswerAbstractTest extends UnitTestCase
     }
 
     /**
+     * @expectedException \Net\Bazzline\Component\TestCase\Answer\InvalidArgumentException
+     * @expectedExceptionMessage Valid opportunity not available in opportunities.
+     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-08
+     */
+    public function testGetAndAddValidOpportunitiesWithoutAddingOpportunities()
+    {
+        $answer = $this->getNewAnswerAbstractMock();
+
+        $validOpportunities = array(
+            'valid opportunity one',
+            'valid opportunity two'
+        );
+
+        foreach ($validOpportunities as $validOpportunity) {
+            $answer->addValidOpportunity($validOpportunity);
+        }
+
+        $this->assertEquals($validOpportunities, array_values($answer->getValidOpportunities()));
+    }
+
+    /**
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
@@ -84,6 +107,9 @@ class AnswerAbstractTest extends UnitTestCase
             'valid opportunity two'
         );
 
+        foreach ($validOpportunities as $validOpportunity) {
+            $answer->addOpportunity($validOpportunity);
+        }
         foreach ($validOpportunities as $validOpportunity) {
             $answer->addValidOpportunity($validOpportunity);
         }

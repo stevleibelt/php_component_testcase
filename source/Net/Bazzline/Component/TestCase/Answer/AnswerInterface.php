@@ -27,11 +27,10 @@ interface AnswerInterface
     /**
      *
      * @param string $enteredOpportunity - user selected opportunity
-     *
      * @return AnswerInterface
+     * @throws InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
-     * @todo throw exception if the added validOpportunity is not in opportunities
      */
     public function addEnteredOpportunity($enteredOpportunity);
 
@@ -84,7 +83,6 @@ interface AnswerInterface
      * Adds a opportunity
      *
      * @param string $opportunity - a opportunity
-     *
      * @return AnswerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
@@ -95,11 +93,10 @@ interface AnswerInterface
      * Adds a valid opportunity
      *
      * @param string $validOpportunity - a valid opportunity
-     *
      * @return mixed
+     * @throws InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
-     * @todo throw exception if the added validOpportunity is not in opportunities
      */
     public function addValidOpportunity($validOpportunity);
 }
