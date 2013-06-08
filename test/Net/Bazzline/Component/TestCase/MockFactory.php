@@ -18,14 +18,6 @@ use Mockery;
 class MockFactory
 {
     /**
-     * @{inheritDoc}
-     */
-    public static function mock()
-    {
-        return Mockery::mock();
-    }
-
-    /**
      * Creates single answer mock
      *
      * @return Mockery\MockInterface|\Net\Bazzline\Component\TestCase\Answer\SingleAnswer
