@@ -6,17 +6,10 @@
 
 namespace Test\Net\Bazzline\Component\TestCase\Answer;
 
-use Net\Bazzline\Component\TestCase\Answer\SingleAnswer;
+use Net\Bazzline\Component\TestCase\Answer\MultipleAnswer;
 use Test\Net\Bazzline\Component\TestCase\UnitTestCase;
 
-/**
- * Class SingleAnswerTest
- *
- * @package Test\Net\Bazzline\Component\TestCase\Answer
- * @author stev leibelt <artodeto@arcor.de>
- * @since 2013-06-08
- */
-class SingleAnswerTest extends UnitTestCase
+class MultipleAnswerTest extends UnitTestCase
 {
     /**
      * @author stev leibelt <artodeto@arcor.de>
@@ -24,9 +17,9 @@ class SingleAnswerTest extends UnitTestCase
      */
     public function testGetType()
     {
-        $answer = $this->getNewSingleAnswer();
+        $answer = $this->getNewMultipleAnswer();
 
-        $this->assertEquals('SingleAnswer', $answer->getType());
+        $this->assertEquals('MultipleAnswer', $answer->getType());
     }
 
     /**
@@ -39,11 +32,13 @@ class SingleAnswerTest extends UnitTestCase
         $defaultOpportunities = array(
             'opportunity one',
             'opportunity two',
-            'opportunity three'
+            'opportunity three',
+            'opportunity four'
         );
         $defaultSelectedOpportunities = array();
         $defaultValidOpportunities = array(
-            'opportunity two'
+            'opportunity two',
+            'opportunity three'
         );
 
         //NTC = negative test case
@@ -53,16 +48,16 @@ class SingleAnswerTest extends UnitTestCase
                 'opportunities' => array(),
                 'selectedOpportunities' => array(),
                 'validOpportunities' => array(),
-                'isValid' => false
+                'percentageOfAccuracy' => 0
             ),
-            'NTC - Two opportunities selected' => array(
+            'NTC - Two invalid opportunities selected' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
                     'opportunity one',
-                    'opportunity two'
+                    'opportunity four'
                 ),
                 'validOpportunities' => array(),
-                'isValid' => false
+                'percentageOfAccuracy' => 0
             ),
             'NTC - One invalid opportunity selected' => array(
                 'opportunities' => array(),
@@ -70,15 +65,33 @@ class SingleAnswerTest extends UnitTestCase
                     'opportunity one'
                 ),
                 'validOpportunities' => array(),
-                'isValid' => false
+                'percentageOfAccuracy' => 0
             ),
-            'PTC - One valid opportunity selected' => array(
+            'NTC - One valid opportunity selected' => array(
                 'opportunities' => array(),
                 'selectedOpportunities' => array(
                     'opportunity two'
                 ),
                 'validOpportunities' => array(),
-                'isValid' => true
+                'percentageOfAccuracy' => 50
+            ),
+            'NTC - One valid and one invalid opportunity selected' => array(
+                'opportunities' => array(),
+                'selectedOpportunities' => array(
+                    'opportunity one',
+                    'opportunity two'
+                ),
+                'validOpportunities' => array(),
+                'percentageOfAccuracy' => 50
+            ),
+            'PTC - Two valid opportunity selected' => array(
+                'opportunities' => array(),
+                'selectedOpportunities' => array(
+                    'opportunity two',
+                    'opportunity three'
+                ),
+                'validOpportunities' => array(),
+                'percentageOfAccuracy' => 100
             )
         );
 
@@ -96,13 +109,13 @@ class SingleAnswerTest extends UnitTestCase
      * @param array $opportunities
      * @param array $selectedOpportunities
      * @param array $validOpportunities
-     * @param bool $isValid
+     * @param int $percentageOfAccuracy
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testValidateSelectedOpportunities(array $opportunities, array $selectedOpportunities, array $validOpportunities, $isValid)
+    public function testValidateSelectedOpportunities(array $opportunities, array $selectedOpportunities, array $validOpportunities, $percentageOfAccuracy)
     {
-        $answer = $this->getNewSingleAnswer();
+        $answer = $this->getNewMultipleAnswer();
 
         foreach ($opportunities as $opportunity) {
             $answer->addOpportunity($opportunity);
@@ -115,6 +128,8 @@ class SingleAnswerTest extends UnitTestCase
         foreach ($validOpportunities as $validOpportunity) {
             $answer->addValidOpportunity($validOpportunity);
         }
+
+        $isValid = ($percentageOfAccuracy == 100);
 
         $this->assertEquals($isValid, $answer->validateSelectedOpportunities());
     }
@@ -124,13 +139,13 @@ class SingleAnswerTest extends UnitTestCase
      * @param array $opportunities
      * @param array $selectedOpportunities
      * @param array $validOpportunities
-     * @param bool $isValid
+     * @param int $percentageOfAccuracy
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testGetPercentageOfAccuracy(array $opportunities, array $selectedOpportunities, array $validOpportunities, $isValid)
+    public function testGetPercentageOfAccuracy(array $opportunities, array $selectedOpportunities, array $validOpportunities, $percentageOfAccuracy)
     {
-        $answer = $this->getNewSingleAnswer();
+        $answer = $this->getNewMultipleAnswer();
 
         foreach ($opportunities as $opportunity) {
             $answer->addOpportunity($opportunity);
@@ -144,18 +159,15 @@ class SingleAnswerTest extends UnitTestCase
             $answer->addValidOpportunity($validOpportunity);
         }
 
-        $percentage = ($isValid) ? 100 : 0;
-
-        $this->assertEquals($percentage, $answer->getPercentageOfAccuracy());
+        $this->assertEquals($percentageOfAccuracy, $answer->getPercentageOfAccuracy());
     }
-
     /**
-     * @return SingleAnswer
+     * @return MultipleAnswer
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    private function getNewSingleAnswer()
+    private function getNewMultipleAnswer()
     {
-        return new SingleAnswer();
+        return new MultipleAnswer();
     }
 }

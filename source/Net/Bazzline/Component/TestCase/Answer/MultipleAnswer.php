@@ -20,7 +20,7 @@ class MultipleAnswer extends AnswerAbstract
      */
     public function validateSelectedOpportunities()
     {
-        $arrayDiff = array_diff_assoc($this->selectedOpportunities, $this->validOpportunities);
+        $arrayDiff = array_diff_assoc($this->validOpportunities, $this->selectedOpportunities);
 
         $isValid = empty($arrayDiff);
 
@@ -41,8 +41,13 @@ class MultipleAnswer extends AnswerAbstract
             }
         }
 
-        $accuracy = $numberOfValidOpportunities / $numberOfValidSelectedOpportunities;
-        $percentage = number_format($accuracy, 2);
+        if ($numberOfValidSelectedOpportunities > 0) {
+            //$accuracy = $numberOfValidOpportunities / $numberOfValidSelectedOpportunities;
+            $accuracy = $numberOfValidSelectedOpportunities / $numberOfValidOpportunities;
+            $percentage = $accuracy * 100;
+        } else {
+            $percentage = 0;
+        }
 
         return $percentage;
     }
