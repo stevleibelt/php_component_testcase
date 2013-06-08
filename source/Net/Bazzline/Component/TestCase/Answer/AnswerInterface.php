@@ -32,6 +32,7 @@ interface AnswerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
      * @todo throw exception if the added validOpportunity is not in opportunities
+     * @todo rename to "addEnteredOpportunity"
      */
     public function addSelectedOpportunity($selectedOpportunity);
 
@@ -41,6 +42,7 @@ interface AnswerInterface
      * @return array
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
+     * @todo rename to "getEnteredOpportunity"
      */
     public function getSelectedOpportunities();
 
@@ -50,6 +52,7 @@ interface AnswerInterface
      * @return boolean
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-05-25
+     * @todo rename to "validateEnteredOpportunity"
      */
     public function validateSelectedOpportunities();
 
