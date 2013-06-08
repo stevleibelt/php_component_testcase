@@ -49,13 +49,13 @@ class SingleAnswerTest extends UnitTestCase
         //NTC = negative test case
         //PTC = positive test case
         $testCases = array(
-            'NTC - No opportunity selected' => array(
+            'NTC - No opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(),
                 'validOpportunities' => array(),
                 'isValid' => false
             ),
-            'NTC - Two opportunities selected' => array(
+            'NTC - Two opportunities entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity one',
@@ -64,7 +64,7 @@ class SingleAnswerTest extends UnitTestCase
                 'validOpportunities' => array(),
                 'isValid' => false
             ),
-            'NTC - One invalid opportunity selected' => array(
+            'NTC - One invalid opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity one'
@@ -72,7 +72,7 @@ class SingleAnswerTest extends UnitTestCase
                 'validOpportunities' => array(),
                 'isValid' => false
             ),
-            'PTC - One valid opportunity selected' => array(
+            'PTC - One valid opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity two'
@@ -94,13 +94,13 @@ class SingleAnswerTest extends UnitTestCase
     /**
      * @dataProvider providerForValidateSelectedOpportunitiesTest
      * @param array $opportunities
-     * @param array $selectedOpportunities
+     * @param array $enteredOpportunities
      * @param array $validOpportunities
      * @param bool $isValid
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testValidateSelectedOpportunities(array $opportunities, array $selectedOpportunities, array $validOpportunities, $isValid)
+    public function testValidateSelectedOpportunities(array $opportunities, array $enteredOpportunities, array $validOpportunities, $isValid)
     {
         $answer = $this->getNewSingleAnswer();
 
@@ -108,8 +108,8 @@ class SingleAnswerTest extends UnitTestCase
             $answer->addOpportunity($opportunity);
         }
 
-        foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addEnteredOpportunity($selectedOpportunity);
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {
@@ -122,13 +122,13 @@ class SingleAnswerTest extends UnitTestCase
     /**
      * @dataProvider providerForValidateSelectedOpportunitiesTest
      * @param array $opportunities
-     * @param array $selectedOpportunities
+     * @param array $enteredOpportunities
      * @param array $validOpportunities
      * @param bool $isValid
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testGetPercentageOfAccuracy(array $opportunities, array $selectedOpportunities, array $validOpportunities, $isValid)
+    public function testGetPercentageOfAccuracy(array $opportunities, array $enteredOpportunities, array $validOpportunities, $isValid)
     {
         $answer = $this->getNewSingleAnswer();
 
@@ -136,8 +136,8 @@ class SingleAnswerTest extends UnitTestCase
             $answer->addOpportunity($opportunity);
         }
 
-        foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addEnteredOpportunity($selectedOpportunity);
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {

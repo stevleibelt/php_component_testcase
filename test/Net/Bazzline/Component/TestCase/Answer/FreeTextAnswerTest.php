@@ -81,10 +81,10 @@ class FreeTextAnswerTest extends UnitTestCase
                 'isValid' => false,
                 'percentageOfAccuracy' => 33
             ),
-            'NTC - One partial valid opportunity entered' => array(
+            'NTC - Two partial valid opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
-                    'this is a text with a two inside'
+                    'this is not a php text but there is a two inside'
                 ),
                 'validOpportunities' => array(),
                 'isValid' => false,
@@ -122,14 +122,14 @@ class FreeTextAnswerTest extends UnitTestCase
     /**
      * @dataProvider providerForValidateSelectedOpportunitiesTest
      * @param array $opportunities
-     * @param array $selectedOpportunities
+     * @param array $enteredOpportunities
      * @param array $validOpportunities
      * @param bool $isValid
      * @param int $percentageOfAccuracy
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testValidateSelectedOpportunities(array $opportunities, array $selectedOpportunities, array $validOpportunities, $isValid, $percentageOfAccuracy)
+    public function testValidateSelectedOpportunities(array $opportunities, array $enteredOpportunities, array $validOpportunities, $isValid, $percentageOfAccuracy)
     {
         $answer = $this->getNewFreeAnswer();
 
@@ -137,8 +137,8 @@ class FreeTextAnswerTest extends UnitTestCase
             $answer->addOpportunity($opportunity);
         }
 
-        foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addEnteredOpportunity($selectedOpportunity);
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {
@@ -151,14 +151,14 @@ class FreeTextAnswerTest extends UnitTestCase
     /**
      * @dataProvider providerForValidateSelectedOpportunitiesTest
      * @param array $opportunities
-     * @param array $selectedOpportunities
+     * @param array $enteredOpportunities
      * @param array $validOpportunities
      * @param bool $isValid
      * @param int $percentageOfAccuracy
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testGetPercentageOfAccuracy(array $opportunities, array $selectedOpportunities, array $validOpportunities, $isValid, $percentageOfAccuracy)
+    public function testGetPercentageOfAccuracy(array $opportunities, array $enteredOpportunities, array $validOpportunities, $isValid, $percentageOfAccuracy)
     {
         $answer = $this->getNewFreeAnswer();
 
@@ -166,8 +166,8 @@ class FreeTextAnswerTest extends UnitTestCase
             $answer->addOpportunity($opportunity);
         }
 
-        foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addEnteredOpportunity($selectedOpportunity);
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {

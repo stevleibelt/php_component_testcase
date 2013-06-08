@@ -59,16 +59,16 @@ class AnswerAbstractTest extends UnitTestCase
     {
         $answer = $this->getNewAnswerAbstractMock();
 
-        $selectedOpportunities = array(
+        $enteredOpportunities = array(
             'selected opportunity one',
             'selected opportunity two'
         );
 
-        foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addEnteredOpportunity($selectedOpportunity);
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
         }
 
-        $this->assertEquals($selectedOpportunities, array_values($answer->getEnteredOpportunities()));
+        $this->assertEquals($enteredOpportunities, array_values($answer->getEnteredOpportunities()));
     }
 
     /**

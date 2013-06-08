@@ -51,13 +51,13 @@ class MultipleAnswerTest extends UnitTestCase
         //NTC = negative test case
         //PTC = positive test case
         $testCases = array(
-            'NTC - No opportunity selected' => array(
+            'NTC - No opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(),
                 'validOpportunities' => array(),
                 'percentageOfAccuracy' => 0
             ),
-            'NTC - Two invalid opportunities selected' => array(
+            'NTC - Two invalid opportunities entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity one',
@@ -66,7 +66,7 @@ class MultipleAnswerTest extends UnitTestCase
                 'validOpportunities' => array(),
                 'percentageOfAccuracy' => 0
             ),
-            'NTC - One invalid opportunity selected' => array(
+            'NTC - One invalid opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity one'
@@ -74,7 +74,7 @@ class MultipleAnswerTest extends UnitTestCase
                 'validOpportunities' => array(),
                 'percentageOfAccuracy' => 0
             ),
-            'NTC - One valid opportunity selected' => array(
+            'NTC - One valid opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity two'
@@ -82,7 +82,7 @@ class MultipleAnswerTest extends UnitTestCase
                 'validOpportunities' => array(),
                 'percentageOfAccuracy' => 50
             ),
-            'NTC - One valid and one invalid opportunity selected' => array(
+            'NTC - One valid and one invalid opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity one',
@@ -91,7 +91,7 @@ class MultipleAnswerTest extends UnitTestCase
                 'validOpportunities' => array(),
                 'percentageOfAccuracy' => 50
             ),
-            'PTC - Two valid opportunity selected' => array(
+            'PTC - Two valid opportunity entered' => array(
                 'opportunities' => array(),
                 'enteredOpportunities' => array(
                     'opportunity two',
@@ -114,13 +114,13 @@ class MultipleAnswerTest extends UnitTestCase
     /**
      * @dataProvider providerForValidateSelectedOpportunitiesTest
      * @param array $opportunities
-     * @param array $selectedOpportunities
+     * @param array $enteredOpportunities
      * @param array $validOpportunities
      * @param int $percentageOfAccuracy
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testValidateSelectedOpportunities(array $opportunities, array $selectedOpportunities, array $validOpportunities, $percentageOfAccuracy)
+    public function testValidateSelectedOpportunities(array $opportunities, array $enteredOpportunities, array $validOpportunities, $percentageOfAccuracy)
     {
         $answer = $this->getNewMultipleAnswer();
 
@@ -128,8 +128,8 @@ class MultipleAnswerTest extends UnitTestCase
             $answer->addOpportunity($opportunity);
         }
 
-        foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addEnteredOpportunity($selectedOpportunity);
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {
@@ -144,13 +144,13 @@ class MultipleAnswerTest extends UnitTestCase
     /**
      * @dataProvider providerForValidateSelectedOpportunitiesTest
      * @param array $opportunities
-     * @param array $selectedOpportunities
+     * @param array $enteredOpportunities
      * @param array $validOpportunities
      * @param int $percentageOfAccuracy
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
-    public function testGetPercentageOfAccuracy(array $opportunities, array $selectedOpportunities, array $validOpportunities, $percentageOfAccuracy)
+    public function testGetPercentageOfAccuracy(array $opportunities, array $enteredOpportunities, array $validOpportunities, $percentageOfAccuracy)
     {
         $answer = $this->getNewMultipleAnswer();
 
@@ -158,8 +158,8 @@ class MultipleAnswerTest extends UnitTestCase
             $answer->addOpportunity($opportunity);
         }
 
-        foreach ($selectedOpportunities as $selectedOpportunity) {
-            $answer->addEnteredOpportunity($selectedOpportunity);
+        foreach ($enteredOpportunities as $enteredOpportunity) {
+            $answer->addEnteredOpportunity($enteredOpportunity);
         }
 
         foreach ($validOpportunities as $validOpportunity) {
