@@ -9,6 +9,13 @@ namespace Test\Net\Bazzline\Component\TestCase\Answer;
 use Net\Bazzline\Component\TestCase\Answer\MultipleAnswer;
 use Test\Net\Bazzline\Component\TestCase\UnitTestCase;
 
+/**
+ * Class MultipleAnswerTest
+ *
+ * @package Test\Net\Bazzline\Component\TestCase\Answer
+ * @author stev leibelt <artodeto@arcor.de>
+ * @since 2013-06-08
+ */
 class MultipleAnswerTest extends UnitTestCase
 {
     /**
