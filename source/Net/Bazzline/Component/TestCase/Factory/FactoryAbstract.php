@@ -22,11 +22,19 @@ abstract class FactoryAbstract implements FromSourceFactoryInterface
      *
      * @param string $source - source file path
      * @return array
+     * @throws InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
     protected function getSourceAsPhpArray($source)
     {
+        if (!is_string($source)
+            || !file_exists($source)) {
+            throw new InvalidArgumentException(
+                'No valid source file given'
+            );
+        }
+
         $extension = $this->getFilenameExtension($source);
         $converter = $this->getConverter($extension);
         $content = ($extension == 'php') ? require_once($source) : file_get_contents($source);
