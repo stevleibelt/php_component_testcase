@@ -99,6 +99,10 @@ class AnswerFactoryTest extends UnitTestCase
             array(
                 'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.yaml',
                 'type' => 'SingleAnswer'
+            ),
+            array(
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.json',
+                'type' => 'SingleAnswer'
             )
         );
     }
