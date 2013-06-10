@@ -37,7 +37,7 @@ abstract class FactoryAbstract implements FromSourceFactoryInterface
 
         $extension = $this->getFilenameExtension($source);
         $converter = $this->getConverter($extension);
-        $content = ($extension == 'php') ? require_once($source) : file_get_contents($source);
+        $content = ($extension == 'php') ? require($source) : file_get_contents($source);
         $converter->fromSource($content);
 
         return $converter->toPhpArray();
@@ -66,6 +66,7 @@ abstract class FactoryAbstract implements FromSourceFactoryInterface
      *
      * @param string $extension - the file extension (php, json, yaml or xml)
      * @return \Net\Bazzline\Component\Converter\ConverterInterface
+     * @throws InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-08
      */
@@ -79,6 +80,11 @@ abstract class FactoryAbstract implements FromSourceFactoryInterface
             'xml' => 'Net\Bazzline\Component\Converter\XMLConverter'
         );
 
+        if (!isset($extensionToConverter[$extension])) {
+            throw new InvalidArgumentException(
+                'No supported file extension given'
+            );
+        }
         $converterName = $extensionToConverter[$extension];
 
         return $factory->get($converterName);

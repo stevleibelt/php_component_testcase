@@ -28,4 +28,16 @@ class UnitTestCase extends PHPUnit_Framework_TestCase
     {
         MockFactory::tearDown();
     }
+
+    /**
+     * @return string
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-11
+     */
+    protected static function getPathToResource()
+    {
+        return realpath(__DIR__) .
+            str_repeat(DIRECTORY_SEPARATOR . '..', 4) .
+            DIRECTORY_SEPARATOR . 'resource';
+    }
 }

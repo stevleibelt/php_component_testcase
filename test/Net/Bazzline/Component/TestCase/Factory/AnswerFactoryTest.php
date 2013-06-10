@@ -8,7 +8,6 @@ namespace Test\Net\Bazzline\Component\TestCase\Factory;
 
 use Net\Bazzline\Component\TestCase\Factory\AnswerFactory;
 use Test\Net\Bazzline\Component\TestCase\UnitTestCase;
-use Test\Net\Bazzline\Component\TestCase\MockFactory;
 use stdClass;
 
 /**
@@ -61,7 +60,72 @@ class AnswerFactoryTest extends UnitTestCase
     public function testFromSourceWithInvalidType($source)
     {
         $factory = AnswerFactory::create();
-
         $factory->fromSource($source);
+    }
+
+    /**
+     * @expectedException \Net\Bazzline\Component\TestCase\Factory\InvalidArgumentException
+     * @expectedExceptionMessage No type found in source array
+     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-11
+     */
+    public function testFromSourceWithInvalidSource()
+    {
+        $source = self::getPathToResource() . DIRECTORY_SEPARATOR .
+            'Factory' . DIRECTORY_SEPARATOR .
+            'Answer' . DIRECTORY_SEPARATOR .
+            'invalidConfiguration.php';
+
+        $factory = AnswerFactory::create();
+        $factory->fromSource($source);
+    }
+
+    /**
+     * @return array
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-10
+     */
+    public static function validSourceTypeProvider()
+    {
+        $baseFilePath = self::getPathToResource() . DIRECTORY_SEPARATOR .
+            'Factory' . DIRECTORY_SEPARATOR . 'Answer';
+
+        return array(
+            array(
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.php',
+                'type' => 'SingleAnswer'
+            ),
+        );
+    }
+
+    /**
+     * @dataProvider validSourceTypeProvider
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-10
+     */
+    public function testFromSourceWithValidSource($source, $type)
+    {
+        $filePath = self::getPathToResource() . DIRECTORY_SEPARATOR .
+            'Factory' . DIRECTORY_SEPARATOR .
+            'Answer' . DIRECTORY_SEPARATOR .
+            'validConfiguration.php';
+        $fileContent = require($filePath);
+
+        $factory = AnswerFactory::create();
+        $answer = $factory->fromSource($source);
+
+        $this->assertInstanceOf(
+            '\\Net\\Bazzline\\Component\\TestCase\\Answer\\' . $type,
+            $answer
+        );
+        $this->assertEquals(
+            array_values($fileContent['opportunities']),
+            array_values($answer->getOpportunities())
+        );
+        $this->assertEquals(
+            $type,
+            $answer->getType()
+        );
     }
 }
