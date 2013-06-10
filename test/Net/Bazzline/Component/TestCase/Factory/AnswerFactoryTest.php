@@ -96,6 +96,10 @@ class AnswerFactoryTest extends UnitTestCase
                 'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.php',
                 'type' => 'SingleAnswer'
             ),
+            array(
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.yaml',
+                'type' => 'SingleAnswer'
+            )
         );
     }
 
@@ -126,6 +130,10 @@ class AnswerFactoryTest extends UnitTestCase
         $this->assertEquals(
             $type,
             $answer->getType()
+        );
+        $this->assertEquals(
+            array('Opportunity Two'),
+            array_values($answer->getValidOpportunities())
         );
     }
 }

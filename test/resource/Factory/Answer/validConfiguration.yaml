@@ -1,0 +1,8 @@
+type: SingleAnswer
+opportunities:
+    - Opportunity One
+    - Opportunity Two
+    - Opportunity Three
+validOpportunities:
+    - Opportunity Two
+
