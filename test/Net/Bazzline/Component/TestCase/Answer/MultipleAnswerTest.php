@@ -103,9 +103,9 @@ class MultipleAnswerTest extends UnitTestCase
         );
 
         foreach ($testCases as &$testCase) {
-            $testCase['opportunities'] = array_merge($testCase['opportunities'], $defaultOpportunities);
-            $testCase['enteredOpportunities'] = array_merge($testCase['enteredOpportunities'], $defaultSelectedOpportunities);
-            $testCase['validOpportunities'] = array_merge($testCase['validOpportunities'], $defaultValidOpportunities);
+            $testCase['opportunities'] = array_merge($defaultOpportunities, $testCase['opportunities']);
+            $testCase['enteredOpportunities'] = array_merge($defaultSelectedOpportunities, $testCase['enteredOpportunities']);
+            $testCase['validOpportunities'] = array_merge($defaultValidOpportunities, $testCase['validOpportunities']);
         }
 
         return $testCases;
