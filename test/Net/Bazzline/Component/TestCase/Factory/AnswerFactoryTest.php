@@ -75,7 +75,7 @@ class AnswerFactoryTest extends UnitTestCase
         $source = self::getPathToResource() . DIRECTORY_SEPARATOR .
             'Factory' . DIRECTORY_SEPARATOR .
             'Answer' . DIRECTORY_SEPARATOR .
-            'invalidConfiguration.php';
+            'invalidAnswer.php';
 
         $factory = AnswerFactory::create();
         $factory->fromSource($source);
@@ -93,15 +93,15 @@ class AnswerFactoryTest extends UnitTestCase
 
         return array(
             array(
-                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.php',
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validAnswer.php',
                 'type' => 'SingleAnswer'
             ),
             array(
-                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.yaml',
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validAnswer.yaml',
                 'type' => 'SingleAnswer'
             ),
             array(
-                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validConfiguration.json',
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validAnswer.json',
                 'type' => 'SingleAnswer'
             )
         );
@@ -117,7 +117,7 @@ class AnswerFactoryTest extends UnitTestCase
         $filePath = self::getPathToResource() . DIRECTORY_SEPARATOR .
             'Factory' . DIRECTORY_SEPARATOR .
             'Answer' . DIRECTORY_SEPARATOR .
-            'validConfiguration.php';
+            'validAnswer.php';
         $fileContent = require($filePath);
 
         $factory = AnswerFactory::create();
