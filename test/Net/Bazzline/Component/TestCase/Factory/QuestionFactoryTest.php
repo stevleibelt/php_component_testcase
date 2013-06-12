@@ -62,4 +62,22 @@ class QuestionFactoryTest extends UnitTestCase
         $factory = QuestionFactory::create();
         $factory->fromSource($source);
     }
+
+    /**
+     * @expectedException \Net\Bazzline\Component\TestCase\Factory\InvalidArgumentException
+     * @expectedExceptionMessage No problemDefinition found in source array
+     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-11
+     */
+    public function testFromSourceWithInvalidSource()
+    {
+        $source = self::getPathToResource() . DIRECTORY_SEPARATOR .
+            'Factory' . DIRECTORY_SEPARATOR .
+            'Question' . DIRECTORY_SEPARATOR .
+            'invalidQuestion.php';
+
+        $factory = QuestionFactory::create();
+        $factory->fromSource($source);
+    }
 }
