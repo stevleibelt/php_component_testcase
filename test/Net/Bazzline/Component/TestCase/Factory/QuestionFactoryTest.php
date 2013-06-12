@@ -8,6 +8,7 @@ namespace Test\Net\Bazzline\Component\TestCase\Factory;
 
 use Net\Bazzline\Component\TestCase\Factory\QuestionFactory;
 use Test\Net\Bazzline\Component\TestCase\UnitTestCase;
+use stdClass;
 
 /**
  * Class QuestionFactoryTest
@@ -58,8 +59,7 @@ class QuestionFactoryTest extends UnitTestCase
      */
     public function testFromSourceWithInvalidType($source)
     {
-        $factory = AnswerFactory::create();
+        $factory = QuestionFactory::create();
         $factory->fromSource($source);
     }
-
 }
