@@ -1,0 +1,1 @@
+{"name": "Valid Suite", "language": "en", "description": "This is a suite for unittest reasons. Do not expect usefull stuff in here.", "pathToTestCases": {"../TestCase/validTestCase.php", "../TestCase/validTestCase.json", "../TestCase/validTestCase.yaml"}}
