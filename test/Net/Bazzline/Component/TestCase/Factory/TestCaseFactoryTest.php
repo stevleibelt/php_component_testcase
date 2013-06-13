@@ -65,7 +65,7 @@ class TestCaseFactoryTest extends UnitTestCase
 
     /**
      * @expectedException \Net\Bazzline\Component\TestCase\Factory\InvalidArgumentException
-     * @expectedExceptionMessage No problemDefinition found in source array
+     * @expectedExceptionMessage No question found in suite
      *
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-13
