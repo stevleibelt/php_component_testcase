@@ -40,4 +40,17 @@ class UnitTestCase extends PHPUnit_Framework_TestCase
             str_repeat(DIRECTORY_SEPARATOR . '..', 4) .
             DIRECTORY_SEPARATOR . 'resource';
     }
+
+    /**
+     * @param $value
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-13
+     */
+    protected function assertIsArray($value)
+    {
+        $this->assertTrue(
+            is_array($value),
+            'Given value is no array. Value ' . var_export($value, true)
+        );
+    }
 }
