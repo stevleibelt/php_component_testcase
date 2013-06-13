@@ -23,7 +23,7 @@ class TestCaseFactoryTest extends UnitTestCase
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-13
      */
-    public function AtestCreate()
+    public function testCreate()
     {
         $factory = TestCaseFactory::create();
 
@@ -57,7 +57,7 @@ class TestCaseFactoryTest extends UnitTestCase
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-13
      */
-    public function AtestFromSourceWithInvalidType($source)
+    public function testFromSourceWithInvalidType($source)
     {
         $factory = TestCaseFactory::create();
         $factory->fromSource($source);
@@ -70,7 +70,7 @@ class TestCaseFactoryTest extends UnitTestCase
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-06-13
      */
-    public function AtestFromSourceWithInvalidSource()
+    public function testFromSourceWithInvalidSource()
     {
         $source = self::getPathToResource() . DIRECTORY_SEPARATOR .
             'Factory' . DIRECTORY_SEPARATOR .
