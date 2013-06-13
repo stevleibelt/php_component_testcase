@@ -24,7 +24,7 @@ function netBazzlineComponentTestcaseDevelopmentAutoloader($className)
             $filePath = realpath($includePath . DIRECTORY_SEPARATOR . $fileName);
 
             if (file_exists($filePath)) {
-                require_once $filePath;
+                require $filePath;
 
                 break;
             } else {

@@ -65,11 +65,15 @@ class TestCaseFactory extends FactoryAbstract
         $answerFactory = AnswerFactory::create();
         $questionFactory = QuestionFactory::create();
 
-        $question = $questionFactory->fromSource($sourceAsArray['question']);
-        $answer = $answerFactory->fromSource($sourceAsArray['answer']);
+        $realPathOfTestCase = dirname(realpath($source));
+        $realPathOfQuestion = $realPathOfTestCase . DIRECTORY_SEPARATOR . $sourceAsArray['question'];
+        $realPathOfAnswer = $realPathOfTestCase . DIRECTORY_SEPARATOR . $sourceAsArray['answer'];
 
-        $testCase->setQuestion($question);
+        $answer = $answerFactory->fromSource($realPathOfAnswer);
+        $question = $questionFactory->fromSource($realPathOfQuestion);
+
         $testCase->setAnswer($answer);
+        $testCase->setQuestion($question);
 
         return $testCase;
     }
