@@ -17,15 +17,16 @@ Following types of test cases are supported:
 
 ## What About Suites
 
-Suites to combine available test cases is a feature.
+Suites are combining available test cases is a feature.
 
-## Format Of A Test Case
+## Supported Formats
 
-The goal is to create a general format of a test case. This leads to the fact, that the format of your test case should be irrelevant. Right now, four formats are supported format factories:
+I am using the [configuration converter component](https://github.com/stevleibelt/php_net_bazzline_component_converter "configuration converter component") to create test cases from different formats. This leads to the fact, that the format of your test case should be irrelevant. Right now, three formats are supported format factories:
     * JSON
-    * XML
     * Php Array
     * YAML
+
+The XML support is currently lacked implemented since xml needs a root tag/dom object. I have to adapt the configuration converter component for that.
 
 # Historical Notes
 
