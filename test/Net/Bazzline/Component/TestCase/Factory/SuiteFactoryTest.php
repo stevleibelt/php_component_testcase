@@ -55,4 +55,45 @@ class SuiteFactoryTest extends UnitTestCase
         $factory = SuiteFactory::create();
         $factory->fromSource($source);
     }
+
+    /**
+     * @expectedException \Net\Bazzline\Component\TestCase\Factory\InvalidArgumentException
+     * @expectedExceptionMessage No test cases found in suite
+     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-13
+     */
+    public function testFromSourceWithInvalidSource()
+    {
+        $source = self::getPathToResource() . DIRECTORY_SEPARATOR .
+            'Factory' . DIRECTORY_SEPARATOR .
+            'Suite' . DIRECTORY_SEPARATOR .
+            'invalidSuite.php';
+
+        $factory = SuiteFactory::create();
+        $factory->fromSource($source);
+    }
+
+    /**
+     * @return array
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-13
+     */
+    public static function validSourceTypeProvider()
+    {
+        $baseFilePath = self::getPathToResource() . DIRECTORY_SEPARATOR .
+            'Factory' . DIRECTORY_SEPARATOR . 'Suite';
+
+        return array(
+            array(
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validSuite.php'
+            ),
+            array(
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validSuite.yaml'
+            ),
+            array(
+                'source' => $baseFilePath . DIRECTORY_SEPARATOR . 'validSuite.json'
+            )
+        );
+    }
 }

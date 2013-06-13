@@ -4,8 +4,8 @@
  * @since 2013-06-12 
  */
 return array(
-    'LevelOne' => array(
+    'LevelOneOne' => array(
         'LevelTwo' => 'ValueOne'
     ),
-    'LevelOne' => 'ValueTwo'
+    'LevelOneTwo' => 'ValueTwo'
 );
