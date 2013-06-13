@@ -96,4 +96,40 @@ class SuiteFactoryTest extends UnitTestCase
             )
         );
     }
+
+    /**
+     * @dataProvider validSourceTypeProvider
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-06-13
+     */
+    public function testFromSourceWithValidSource($source)
+    {
+        $filePath = self::getPathToResource() . DIRECTORY_SEPARATOR .
+            'Factory' . DIRECTORY_SEPARATOR .
+            'Suite' . DIRECTORY_SEPARATOR .
+            'validSuite.php';
+        $fileContent = require($filePath);
+
+        $factory = SuiteFactory::create();
+        $suite = $factory->fromSource($source);
+
+        $this->assertEquals(
+            $fileContent['name'],
+            $suite->getName()
+        );
+        $this->assertEquals(
+            $fileContent['language'],
+            $suite->getLanguage()
+        );
+        $this->assertEquals(
+            $fileContent['description'],
+            $suite->getDescription()
+        );
+        $this->assertIsArray($suite->getTestCases());
+        foreach ($suite->getTestCases() as $testCase) {
+            $this->assertTrue(
+                $testCase instanceof \Net\Bazzline\Component\TestCase\TestCase\TestCaseInterface
+            );
+        }
+    }
 }

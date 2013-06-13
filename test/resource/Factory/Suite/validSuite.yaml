@@ -1,5 +1,5 @@
 name: "Valid Suite"
-language": "en"
+language: "en"
 description: "This is a suite for unittest reasons. Do not expect usefull stuff in here."
 pathToTestCases:
   - "../TestCase/validTestCase.php"

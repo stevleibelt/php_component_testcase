@@ -48,8 +48,8 @@ class SuiteFactory extends FactoryAbstract
             );
         }
 
-        if (!isset($array['pathToTestCases'])
-            || empty($array['pathToTestCases'])) {
+        if (!isset($sourceAsArray['pathToTestCases'])
+            || empty($sourceAsArray['pathToTestCases'])) {
             throw new InvalidArgumentException(
                 'No test cases found in suite'
             );
@@ -58,14 +58,18 @@ class SuiteFactory extends FactoryAbstract
         $suite = new Suite();
         $testCaseFactory = TestCaseFactory::create();
 
-        $suite->setName($array['name']);
-        $suite->setLanguage($array['language']);
-        $suite->setDescription($array['description']);
+        $suite->setName($sourceAsArray['name']);
+        $suite->setLanguage($sourceAsArray['language']);
+        $suite->setDescription($sourceAsArray['description']);
 
-        foreach ($array['pathToTestCases'] as $testCaseFilename) {
-            if (file_exists($testCaseFilename)
-                && is_readable($testCaseFilename)) {
-                $testCase = $testCaseFactory->fromSource($testCaseFilename);
+        $realPathOfSuite = dirname(realpath($source));
+
+        foreach ($sourceAsArray['pathToTestCases'] as $testCaseFilename) {
+            $realPathOfTestCase = $realPathOfSuite . DIRECTORY_SEPARATOR . $testCaseFilename;
+
+            if (file_exists($realPathOfTestCase)
+                && is_readable($realPathOfTestCase)) {
+                $testCase = $testCaseFactory->fromSource($realPathOfTestCase);
                 $suite->addTestCase($testCase);
             }
         }
