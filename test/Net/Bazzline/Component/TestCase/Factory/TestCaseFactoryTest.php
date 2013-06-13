@@ -10,6 +10,13 @@ use Net\Bazzline\Component\TestCase\Factory\TestCaseFactory;
 use Test\Net\Bazzline\Component\TestCase\UnitTestCase;
 use stdClass;
 
+/**
+ * Class TestCaseFactoryTest
+ *
+ * @package Test\Net\Bazzline\Component\TestCase\Factory
+ * @author stev leibelt <artodeto@arcor.de>
+ * @since 2013-06-13
+ */
 class TestCaseFactoryTest extends UnitTestCase
 {
     /**
