@@ -4,7 +4,7 @@
     "description": "php component generalize test case objects for knowledge tests",
     "keywords": ["php", "net_bazzline", "component", "testcase"],
     "homepage": "https://github.com/stevleibelt/php_net_bazzline_component_testcase",
-    "license": "GPLv3",
+    "license": "LGPLv3",
     "authors": [
         {
             "name": "stev leibelt",
