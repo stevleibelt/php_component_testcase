@@ -48,7 +48,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getOpportunities()
     {
@@ -56,7 +56,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function addEnteredOpportunity($enteredOpportunity)
     {
@@ -71,7 +71,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getEnteredOpportunities()
     {
@@ -79,7 +79,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getValidOpportunities()
     {
@@ -87,7 +87,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getType()
     {
@@ -98,7 +98,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function addOpportunity($opportunity)
     {
@@ -108,7 +108,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function addValidOpportunity($validOpportunity)
     {
@@ -128,7 +128,7 @@ abstract class AnswerAbstract implements AnswerInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function validateEnteredOpportunities()
     {

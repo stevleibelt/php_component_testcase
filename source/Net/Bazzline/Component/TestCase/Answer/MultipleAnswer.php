@@ -16,7 +16,7 @@ namespace Net\Bazzline\Component\TestCase\Answer;
 class MultipleAnswer extends AnswerAbstract
 {
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getPercentageOfAccuracy()
     {

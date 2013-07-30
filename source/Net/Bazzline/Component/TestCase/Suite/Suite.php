@@ -58,7 +58,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getName()
     {
@@ -66,7 +66,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function setName($name)
     {
@@ -76,7 +76,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getDescription()
     {
@@ -84,7 +84,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function setDescription($description)
     {
@@ -94,7 +94,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getLanguage()
     {
@@ -102,7 +102,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function setLanguage($language)
     {
@@ -112,7 +112,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function getTestCases()
     {
@@ -120,7 +120,7 @@ class Suite implements SuiteInterface
     }
 
     /**
-     * @{inheritDoc}
+     * @{inheritdoc}
      */
     public function addTestCase(TestCaseInterface $testCase)
     {
