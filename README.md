@@ -4,6 +4,10 @@ The test case component is mention to generalize php objects that should represe
 
 Furthermore, this component provides interfaces you can use to create your own test cases.
 
+The build status of the current master branch is tracked by Travis CI: 
+
+[![Build Status](https://travis-ci.org/stevleibelt/php_component_testcase.png?branch=master)](http://travis-ci.org/stevleibelt/php_component_testcase)
+
 ## What Is A Test Case
 
 A test case is a combination of a question and a type of an answer.
